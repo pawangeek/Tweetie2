@@ -1,0 +1,38 @@
+{% extends 'tweetie/base.html' %}
+{% block content %}
+
+          <li class="nav-item">
+            <a class="nav-link" href="/logout/">Logout</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/analyze/">Analysis</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center" style="margin-top: 2em;">
+
+        {% for tweet in tweets %}
+        <li>
+          <p>{{ tweet.text }}</p>
+          <p> {{ tweet.tweetid }}</p>
+          <span>{{ tweet.created_at }}</span>
+          <span>{{ tweet.author }}</span>
+          <p> {{ tweet.link }} </p>
+          <p> {{tweet.website }}</p>
+        </li>
+        {% endfor %}
+
+        {% with last_tweet=last_tweet %} 
+        <a href="?prev={{ last_tweet.id }}">next page</a>
+        {% endwith %}
+
+{% endblock %}    

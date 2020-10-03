@@ -1,0 +1,31 @@
+{% extends 'tweetie/base.html' %}
+{% block content %}
+          <li class="nav-item">
+            <a class="nav-link" href="/tweet/">Tweets</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout/">Logout</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center" style="margin-top: 7em;">
+
+        <p> Maxm tweeted links </p>
+        <ul class="list-unstyled">
+            {% for tweet in maxlink %}
+                <li>{{ tweet.website }} -> {{ tweet.total }}</li>
+            {% endfor %}
+        </ul>
+        <br>
+        <p> {{ maxtweet.author }} share maxm links: {{ maxtweet.total }}</p>
+
+{% endblock %}      
